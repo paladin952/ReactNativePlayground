@@ -1,38 +1,77 @@
-
 import React from 'react'
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import * as ApiService from "../services/api-service";
+import GridView from 'react-native-super-grid';
+import SquareGrid from "react-native-square-grid";
 
 export default class MainList extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount() {
+        ApiService.getMostPopular()
+            .then(response => {
+                // console.log("luci", response.data.results);
+                console.log("luci", response.data.results[0]);
+                let newData = response.data.results;
+                newData.push(...newData);
+                this.setState({
+                    data: response.data.results || []
+                });
+            }).catch(err => {
+            //TODO
+        })
+    }
+
     render() {
-        return(
-            <View style={styles.container}>
-                <FlatList
-                    data={[
-                        {key: 'Devin'},
-                        {key: 'Jackson'},
-                        {key: 'James'},
-                        {key: 'Joel'},
-                        {key: 'John'},
-                        {key: 'Jillian'},
-                        {key: 'Jimmy'},
-                        {key: 'Julie'},
-                    ]}
-                    renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-                />
+        return (
+            <View style={{flex: 1}}>
+                {this.state.data &&
+                <SquareGrid
+                    columns={2}
+                    scrolling={true}
+                    items={this.state.data}
+                    renderItem={item =>
+                        <View style={styles.item}>
+                            <View style={styles.content}>
+                                <Image
+                                    style={{
+                                        backgroundColor: '#ccc',
+                                        flex: 1,
+                                        resizeMode: 'cover',
+                                        position: 'absolute',
+                                        width: '100%',
+                                        height: '100%',
+                                        justifyContent: 'center',
+                                    }}
+                                    source={{
+                                        uri: "https://image.tmdb.org/t/p/w500/" + item.poster_path,
+                                    }}
+                                />
+                            </View>
+                        </View>
+                    }
+                />}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 22
-    },
     item: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-    }
+        flex: 1,
+        alignSelf: "stretch",
+    },
+    content: {
+        flex: 1,
+        backgroundColor: "red",
+        alignItems: "center",
+        justifyContent: "center"
+    },
 });
