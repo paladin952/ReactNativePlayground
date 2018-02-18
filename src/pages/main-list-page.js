@@ -1,7 +1,6 @@
 import React from 'react'
-import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import * as ApiService from "../services/api-service";
-import GridView from 'react-native-super-grid';
 import SquareGrid from "react-native-square-grid";
 
 export default class MainList extends React.Component {
