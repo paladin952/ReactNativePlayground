@@ -1,19 +1,53 @@
 import React from 'react';
 import {Image, ScrollView, Text, View, Dimensions} from "react-native";
+import * as ApiService from "../services/api-service";
 
 export default class MovieDetails extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            reviews: []
+        }
+    }
+
     componentDidMount() {
+        let movie = this.props.navigation.state.params.movie;
+        ApiService.getReviews(movie.id)
+            .then(response => {
+                console.log("luci", response.data.results);
+                this.setState({
+                    reviews: response.data.results || []
+                })
+            }).catch(err => {
+            console.log("luci", err);
+        });
     }
 
     render() {
         let movie = this.props.navigation.state.params.movie;
         let screenHeight = Dimensions.get('window').height;
+        let screenWidth = Dimensions.get('window').width;
+        let imageHeight = Math.min(screenWidth, screenHeight);
+
+        let reviewsViews = this.state.reviews.map((item) => {
+            return (
+                <View key={item.id} style={{marginBottom: 16, marginRight: 16, marginLeft: 16}}>
+                    <Text style={{fontSize: 24, fontWeight: 'bold'}}>
+                        {item.author}
+                    </Text>
+                    <Text style={{fontSize: 20, fontStyle: 'italic'}}>
+                        {item.content}
+                    </Text>
+                    <View style={{height: 0.33, width: '100%', backgroundColor: 'gray', marginTop: 8}}/>
+                </View>
+            )
+        });
 
         return (
             <ScrollView style={{height: screenHeight}}>
                 <View style={{flex: 1}}>
-                    <View style={{height: screenHeight / 3, justifyContent: 'flex-end'}}>
+                    <View style={{height: imageHeight, justifyContent: 'flex-end'}}>
                         <Image
                             style={{
                                 backgroundColor: '#ccc',
@@ -39,9 +73,21 @@ export default class MovieDetails extends React.Component {
                         </Text>
                     </View>
                     <View style={{padding: 16}}>
+                        <Text style={{fontSize: 28, color: 'pink'}}>
+                            Overview:
+                        </Text>
                         <Text style={{fontSize: 22}}>
                             {movie.overview}
                         </Text>
+                    </View>
+
+                    <View>
+                        {reviewsViews && <Text style={{fontSize: 28, marginTop: 16, marginLeft: 16, color: 'pink'}}>
+                            Reviews:
+                        </Text>}
+
+                        {reviewsViews}
+
                     </View>
                 </View>
             </ScrollView>
