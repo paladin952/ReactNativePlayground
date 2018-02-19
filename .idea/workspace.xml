@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7c93b819-1ed0-43df-a5ba-f928c1291f90" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screenshoots/screenshoot1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screenshoots/screenshoot2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/screenshoots/screenshoot1.jpg" afterPath="$PROJECT_DIR$/screenshots/screenshoot1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/screenshoots/screenshoot2.jpg" afterPath="$PROJECT_DIR$/screenshots/screenshoot2.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/movie-details.js" afterPath="$PROJECT_DIR$/src/pages/movie-details.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -332,7 +331,7 @@
       <option name="presentableId" value="Default" />
       <updated>1518980339490</updated>
       <workItem from="1518980341104" duration="8646000" />
-      <workItem from="1519049947705" duration="12935000" />
+      <workItem from="1519049947705" duration="13055000" />
     </task>
     <task id="LOCAL-00001" summary="add list of images">
       <created>1518986228960</created>
@@ -397,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519065723034</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add images">
+      <created>1519067267384</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1519067267384</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21581000" />
+    <option name="totallyTimeSpent" value="21701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="23" width="2560" height="1338" extended-state="0" />
@@ -453,7 +459,8 @@
     <MESSAGE value="add reviews" />
     <MESSAGE value="remove logs" />
     <MESSAGE value="title change" />
-    <option name="LAST_COMMIT_MESSAGE" value="title change" />
+    <MESSAGE value="add images" />
+    <option name="LAST_COMMIT_MESSAGE" value="add images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
