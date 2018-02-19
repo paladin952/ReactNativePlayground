@@ -15,12 +15,10 @@ export default class MovieDetails extends React.Component {
         let movie = this.props.navigation.state.params.movie;
         ApiService.getReviews(movie.id)
             .then(response => {
-                console.log("luci", response.data.results);
                 this.setState({
                     reviews: response.data.results || []
                 })
-            }).catch(err => {
-            console.log("luci", err);
+            }).catch(ignore => {
         });
     }
 
