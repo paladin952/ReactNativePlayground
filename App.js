@@ -14,7 +14,7 @@ const App = StackNavigator({
     MainList: {
         screen: MainList,
         navigationOptions: {
-            title: "Text Title",
+            title: "Most popular",
             headerLeft: null
         }
     },
