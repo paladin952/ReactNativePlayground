@@ -26,7 +26,7 @@ export default class SplashScreen extends React.Component {
     render() {
         return (
             <View style={{flex: 1, justifyContent: 'center'}}>
-                <Text style={{fontSize: 48, textAlign: 'center'}}>SOME SPLASH TEXT</Text>
+                <Text style={{fontSize: 48, textAlign: 'center'}}>SPLASH SCREEN</Text>
             </View>
         )
     }

@@ -21,8 +21,6 @@ export default class MainList extends React.Component {
         });
         ApiService.getMostPopular()
             .then(response => {
-                let newData = response.data.results;
-                newData.push(...newData);
                 this.setState({
                     data: response.data.results || [],
                     loading: false
