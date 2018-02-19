@@ -74,7 +74,7 @@ export default class MovieDetails extends React.Component {
                         <Text style={{fontSize: 28, color: 'pink'}}>
                             Overview:
                         </Text>
-                        <Text style={{fontSize: 22}}>
+                        <Text style={{fontSize: 20}}>
                             {movie.overview}
                         </Text>
                     </View>
